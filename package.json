@@ -1,0 +1,30 @@
+{
+  "name": "mds_open_source",
+  "version": "1.0.0",
+  "description": "Shorcut generator url",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ddg80/mds_open_source.git"
+  },
+  "keywords": [
+    "shortcut",
+    "generator",
+    "url"
+  ],
+  "author": "team_mds_school",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ddg80/mds_open_source/issues"
+  },
+  "homepage": "https://github.com/Ddg80/mds_open_source#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "mongoose": "^8.2.1",
+    "nanoid": "^5.0.6"
+  }
+}
