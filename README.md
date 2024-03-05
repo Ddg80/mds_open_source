@@ -7,3 +7,11 @@ Notre projet open source permet de créer des shorts cut d'url.
  npm i -D nodemon
 ```
     
+## MONGO DB
+
+```Bash
+mongosh
+show dbs
+use [tableName]
+show collections
+```
