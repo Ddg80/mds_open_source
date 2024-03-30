@@ -13,8 +13,8 @@ npm i
 ```Bash
 npm run start
 ```
-Here's an image of a drag racer in action:
+Here's an image of a shortcut generator in action:
 
-![Screen application](images/screen.jpg)
+![Screen application](./images/screen.jpg)
 
 Move along.
