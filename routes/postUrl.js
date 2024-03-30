@@ -1,39 +1,37 @@
 import express from "express";
-import Url from "../models/Url";
-import dotenv from "dotenv";
 import { nanoid } from "nanoid";
-dotenv.config({ path: ".env" });
+import Url from '../models/Url.js';
+import { isValidUrl } from '../utils/utils.js';
 
 const router = express.Router();
 
-router.post("/post", async (req, res) => {
-  const { origUrl } = req.body;
-  const base = process.env.BASE;
-
+export default router.post("/create-short-url", async function (req, res) {
+  const origUrl = req.body.longurl;
   const urlId = nanoid();
-  if (utils.validateUrl(origUrl)) {
+  const base = process.env.BASE;
+  if (isValidUrl(origUrl)) {
     try {
       let url = await Url.findOne({ origUrl });
       if (url) {
         res.json(url);
       } else {
         const shortUrl = `${base}/${urlId}`;
+
         url = new Url({
           origUrl,
           shortUrl,
           urlId,
           date: new Date(),
         });
+
         await url.save();
         res.json(url);
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.log(err);
       res.status(500).json("Server Error");
     }
   } else {
     res.status(400).json("Invalid Original Url");
   }
 });
-
-module.exports = router;
