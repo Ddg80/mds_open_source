@@ -1,10 +1,12 @@
 const host = "http://localhost:3333/";
-const longurl = document.querySelector("#longurl").value.trim();
 const urlsForm = document.getElementById("urlsForm");
-const shortUrl = document.getElementById("short-url");
-const listUrls = document.querySelector("#list_urls tbody");
+
 
 urlsForm.addEventListener("submit", (e) => {
+
+  const longurl = document.querySelector("#longurl").value.trim();
+  const shortUrl = document.getElementById("short-url");
+  const listUrls = document.querySelector("#list_urls tbody");
   e.preventDefault();
   if (longurl.length == 0) {
     alert("Enter valid url");
@@ -16,9 +18,8 @@ urlsForm.addEventListener("submit", (e) => {
     return;
   }
 
-  PostDataJSON()
+  PostDataJSON(longurl)
     .then((data) => {
-      console.log(data);
       if (data) {
         shortUrl.innerText = data.urlId;
         shortUrl.href = `${host}api/${data.urlId}`;
@@ -53,6 +54,7 @@ urlsForm.addEventListener("submit", (e) => {
           alert("Something went wrong");
           console.log(error);
         });
+        document.getElementById("urlsForm").reset();
     });
 });
 
@@ -74,9 +76,9 @@ getUrlsJSON()
     console.log(error);
   });
 
-document.getElementById("urlsForm").reset();
 
-async function PostDataJSON() {
+
+async function PostDataJSON(longurl) {
   const response = await fetch(host + "api/create-short-url", {
     method: "POST",
     body: JSON.stringify({
