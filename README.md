@@ -18,3 +18,11 @@ Here's an image of a shortcut generator in action:
 [![Screen]()](images/screen.png)
 
 Move along.
+
+## ENVIRONMENT VARIABLES
+
+```yaml
+PORT=3333
+MONGO_URI=mongodb+srv://<username>:<password>@<project>.cqgydoc.mongodb.net/?retryWrites=true&w=majority&appName=urls
+BASE=http://localhost:3333/
+```
