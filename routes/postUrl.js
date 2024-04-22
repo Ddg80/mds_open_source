@@ -15,7 +15,7 @@ export default router.post("/create-short-url", async function (req, res) {
       if (url) {
         res.json(url);
       } else {
-        const shortUrl = `${base}/${urlId}`;
+        const shortUrl = `${base}${urlId}`;
 
         url = new Url({
           origUrl,
