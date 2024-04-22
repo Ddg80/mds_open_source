@@ -12,7 +12,7 @@ connectDB();
 
 // Server Setup
 const PORT = process.env.PORT || 3333;
-
+const URL = `http://localhost:3333`
 // Config app
 app.use(express.urlencoded({extended: true}))
 app.use(express.static("public"));
@@ -28,4 +28,5 @@ app.use('/api', getUrlId)
 
 app.listen(PORT, () => {
   console.log(`Server is running at PORT ${PORT}`);
+  console.log(`Application is running at URL: ${URL}`);
 });

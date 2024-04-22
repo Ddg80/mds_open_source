@@ -26,3 +26,7 @@ PORT=3333
 MONGO_URI=mongodb+srv://<username>:<password>@<project>.cqgydoc.mongodb.net/?retryWrites=true&w=majority&appName=urls
 BASE=http://localhost:3333/
 ```
+
+## Display app
+
+![App shortcut](images/Screenshot-app.png)
