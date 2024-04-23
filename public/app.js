@@ -6,9 +6,6 @@ urlsForm.addEventListener("submit", (e) => {
   const longurl = document.querySelector("#longurl").value.trim();
   const shortUrl = document.getElementById("short-url");
   const listUrls = document.querySelector("#list_urls tbody");
-  console.log("longUrl", longurl);
-  console.log("shortUrl", shortUrl);
-  console.log("listUrls", listUrls);
 
   e.preventDefault();
   if (longurl.length == 0) {
@@ -21,10 +18,8 @@ urlsForm.addEventListener("submit", (e) => {
     return;
   }
 
-  console.log("LONGURL", longurl);
   PostDataJSON(longurl)
     .then((data) => {
-      console.log("DATA",data);
       if (data) {
         shortUrl.innerText = data.urlId;
         shortUrl.href = `${host}api/${data.urlId}`;

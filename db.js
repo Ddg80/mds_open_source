@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 
 
 const connectDB = () => {
-  console.log( "DB", config.app.mongo);
     mongoose.connect(config.app.mongo)
     .then(() => {
       console.log("BD Connection successful.");

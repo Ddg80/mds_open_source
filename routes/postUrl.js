@@ -10,7 +10,6 @@ export default router.post("/create-short-url", async function (req, res) {
   const origUrl = req.body.longurl;
   const urlId = nanoid();
   const base = config.app.base;
-  console.log("POST URL", base);
   if (isValidUrl(origUrl)) {
     try {
       let url = await Url.findOne({ origUrl });

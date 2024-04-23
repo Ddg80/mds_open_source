@@ -14,9 +14,7 @@ connectDB();
 
 // Server Setup
 const PORT = config.app.port || 3333;
-console.log("PORT", PORT);
 const URL = config.app.base
-console.log("URL", URL);
 // Config app
 app.use(express.urlencoded({extended: true}))
 app.use(express.static("public"));
