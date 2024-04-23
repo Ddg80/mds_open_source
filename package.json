@@ -1,6 +1,6 @@
 {
   "name": "mds_open_source",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "type": "module",
   "description": "Shorcut generator url",
   "main": "index.js",
