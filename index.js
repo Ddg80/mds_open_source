@@ -23,7 +23,7 @@ app.use(express.static("public"));
 app.use(express.json())
 
 app.get("/",function(request,response){
-	response.sendFile(__dirname + "/public/index.html");
+	response.sendFile("./public/index.html");
 });
 
 app.use('/api', postUrlRouter)
