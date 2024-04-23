@@ -1,32 +1,14 @@
 # Bienvenue dans notre projet Open Source!
 Notre projet open source permet de créer des shorts cut d'url.
+
 # Installations
+
 ```bash
-npm i
-```
-## Dépendances installed
-```Bash
- npm i dotenv express mongoose nanoid
- npm i -D nodemon
-```
-## Run application
-```Bash
-npm run start
-```
-Here's an image of a shortcut generator in action:
-
-[![Screen]()](images/screen.png)
-
-Move along.
-
-## ENVIRONMENT VARIABLES
-
-```yaml
-PORT=3333
-MONGO_URI=mongodb+srv://<username>:<password>@<project>.cqgydoc.mongodb.net/?retryWrites=true&w=majority&appName=urls
-BASE=http://localhost:3333/
+npm i -g mds_open_source
+mds_open_source --port=3500 --mongo="mongodb+srv://dguillin80:lHlWMk964uWHexdU@urls.cqgydoc.mongodb.net/?retryWrites=true&w=majority&appName=urls" --base="http://localhost:3500"
 ```
 
 ## Display app
+Here's an image of a shortcut generator in action:
 
 ![App shortcut](images/Screenshot-app.png)
