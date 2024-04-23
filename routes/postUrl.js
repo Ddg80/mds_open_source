@@ -1,3 +1,4 @@
+import config from "../config.js";
 import express from "express";
 import { nanoid } from "nanoid";
 import Url from '../models/Url.js';
@@ -8,7 +9,8 @@ const router = express.Router();
 export default router.post("/create-short-url", async function (req, res) {
   const origUrl = req.body.longurl;
   const urlId = nanoid();
-  const base = process.env.BASE;
+  const base = config.app.base;
+  console.log("POST URL", base);
   if (isValidUrl(origUrl)) {
     try {
       let url = await Url.findOne({ origUrl });
@@ -28,10 +30,11 @@ export default router.post("/create-short-url", async function (req, res) {
         res.json(url);
       }
     } catch (err) {
-      console.log(err);
+      console.log("POST URL", err);
       res.status(500).json("Server Error");
     }
   } else {
+    console.log("ELSE POSTURL", res);
     res.status(400).json("Invalid Original Url");
   }
 });

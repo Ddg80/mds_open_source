@@ -1,12 +1,15 @@
-const host = "http://localhost:3333/";
+const host = "/";
 const urlsForm = document.getElementById("urlsForm");
-
 
 urlsForm.addEventListener("submit", (e) => {
 
   const longurl = document.querySelector("#longurl").value.trim();
   const shortUrl = document.getElementById("short-url");
   const listUrls = document.querySelector("#list_urls tbody");
+  console.log("longUrl", longurl);
+  console.log("shortUrl", shortUrl);
+  console.log("listUrls", listUrls);
+
   e.preventDefault();
   if (longurl.length == 0) {
     alert("Enter valid url");
@@ -18,8 +21,10 @@ urlsForm.addEventListener("submit", (e) => {
     return;
   }
 
+  console.log("LONGURL", longurl);
   PostDataJSON(longurl)
     .then((data) => {
+      console.log("DATA",data);
       if (data) {
         shortUrl.innerText = data.urlId;
         shortUrl.href = `${host}api/${data.urlId}`;
@@ -34,7 +39,7 @@ urlsForm.addEventListener("submit", (e) => {
     })
     .catch((error) => {
       alert("Something went wrong");
-      console.log(error);
+      console.log("Error app.js", error);
     })
     .finally(() => {
       getUrlsJSON()
@@ -52,7 +57,7 @@ urlsForm.addEventListener("submit", (e) => {
         })
         .catch((error) => {
           alert("Something went wrong");
-          console.log(error);
+          console.log("ERROR app.js", error);
         });
         document.getElementById("urlsForm").reset();
     });
@@ -73,7 +78,7 @@ getUrlsJSON()
   })
   .catch((error) => {
     alert("Something went wrong");
-    console.log(error);
+    console.log("app.js ", error);
   });
 
 

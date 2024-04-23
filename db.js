@@ -1,9 +1,10 @@
+import config from "./config.js"
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-dotenv.config({ path: '.env' });
+
 
 const connectDB = () => {
-    mongoose.connect(process.env.MONGO_URI)
+  console.log( "DB", config.app.mongo);
+    mongoose.connect(config.app.mongo)
     .then(() => {
       console.log("BD Connection successful.");
     })

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+import config from './config.js';
 import express from 'express';
 import connectDB from './db.js';
 import Url from './models/Url.js';
@@ -11,8 +13,10 @@ import getUrlId from './routes/getUrlId.js'
 connectDB();
 
 // Server Setup
-const PORT = process.env.PORT || 3333;
-const URL = `http://localhost:3333`
+const PORT = config.app.port || 3333;
+console.log("PORT", PORT);
+const URL = config.app.base
+console.log("URL", URL);
 // Config app
 app.use(express.urlencoded({extended: true}))
 app.use(express.static("public"));
